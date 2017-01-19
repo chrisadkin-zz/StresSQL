@@ -11,14 +11,12 @@ BEGIN ATOMIC
 	WHILE @i < @QueueSize
 	BEGIN
 		INSERT INTO [dbo].[MyQLmaxImOltp]
-			   ([Slot]
-			   ,[message_id]
+			   ([message_id]
 			   ,[time]
 			   ,[message]
 			   ,[reference_count])
 		 VALUES
-			   (@i
-			   ,0
+			   (0
 			   ,GETDATE()
 			   ,''
 			   ,0);

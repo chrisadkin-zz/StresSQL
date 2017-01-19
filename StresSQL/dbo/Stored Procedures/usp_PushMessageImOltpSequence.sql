@@ -7,7 +7,7 @@ BEGIN ATOMIC
 WITH ( TRANSACTION ISOLATION LEVEL = SNAPSHOT
       ,LANGUAGE                    = N'us_english')
 
-    UPDATE MyQLmaxImOltp
+    UPDATE [dbo].[MyQLmaxImOltp]
 	SET     [message]         = 'Hello world'
 	       ,[reference_count] = 1
 	WHERE  Slot               = @Slot

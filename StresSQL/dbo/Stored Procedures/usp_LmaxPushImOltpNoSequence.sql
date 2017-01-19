@@ -6,6 +6,7 @@ BEGIN
     WHILE @i <= @TransactionsPerThread 
     BEGIN
         EXEC dbo.usp_PushMessageImOltpNoSequence;
+		SET @i += 1;
     END;
 END;
 

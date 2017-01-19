@@ -12,9 +12,11 @@ BEGIN
 
 		WHILE @MessagePushed = 0
 		BEGIN
-	        EXEC [dbo].[usp_GetPushSlotId] @Slot OUTPUT, @QueueSize;
+	        SELECT @Slot = NEXT VALUE FOR [dbo].[PushSequence] % @QueueSize
             EXEC dbo.usp_PushMessageImOltpSequence @Slot, @MessagePushed OUTPUT;
 		END;
+
+		SET @i += 1;
     END;
 END;
 GO

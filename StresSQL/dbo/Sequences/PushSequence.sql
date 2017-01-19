@@ -1,0 +1,8 @@
+﻿CREATE SEQUENCE [dbo].[PushSequence]
+    AS BIGINT
+    INCREMENT BY 1
+    MINVALUE 1
+    MAXVALUE 4000000
+    CYCLE
+    CACHE 1000;
+

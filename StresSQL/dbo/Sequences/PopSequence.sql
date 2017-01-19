@@ -1,0 +1,8 @@
+﻿CREATE SEQUENCE [dbo].[PopSequence]
+    AS BIGINT
+    INCREMENT BY 1
+    MINVALUE 1
+    MAXVALUE 2000000
+    CYCLE
+    CACHE 1000;
+

@@ -1,0 +1,24 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[MyBigTableNewid] (Table)
+       Default Constraint: unnamed constraint on [dbo].[MyBigTableNewid] (Default Constraint)
+       [dbo].[DF_BigTableNewid_c2] (Default Constraint)
+       [dbo].[DF_BigTableNewid_c3] (Default Constraint)
+       [dbo].[DF_BigTableNewid_c4] (Default Constraint)
+       [dbo].[DF_BigTableNewid_c5] (Default Constraint)
+       [dbo].[DF_BigTableNewid_c6] (Default Constraint)
+       [dbo].[usp_InsertNewid] (Procedure)
+     Alter
+       [dbo].[usp_StressTestHarness] (Procedure)
+
+** Supporting actions

@@ -1,0 +1,5 @@
+﻿CREATE SEQUENCE [dbo].[PartIdSeq]
+    AS BIGINT
+    START WITH 0
+    INCREMENT BY 1;
+

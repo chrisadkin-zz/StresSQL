@@ -1,0 +1,23 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Alter
+       [dbo].[usp_LmaxPopDiskNumaNoSequence] (Procedure)
+       [dbo].[usp_LmaxPopDiskNumaSequence] (Procedure)
+       [dbo].[usp_LmaxPushDiskNoSequence] (Procedure)
+       [dbo].[usp_LmaxPushDiskNumaNoSequence] (Procedure)
+       [dbo].[usp_LmaxPushDiskNumaSequence] (Procedure)
+       [dbo].[usp_LmaxPushImOltpNoSequence] (Procedure)
+     Create
+       [dbo].[usp_PushMessageImOltpSequence] (Procedure)
+       [dbo].[usp_LmaxPushImOltpSequence] (Procedure)
+
+** Supporting actions

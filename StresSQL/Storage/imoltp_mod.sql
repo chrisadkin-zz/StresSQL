@@ -1,0 +1,3 @@
+﻿ALTER DATABASE [$(DatabaseName)]
+    ADD FILEGROUP [imoltp_mod] CONTAINS MEMORY_OPTIMIZED_DATA;
+

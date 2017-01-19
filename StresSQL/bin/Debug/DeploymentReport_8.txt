@@ -1,0 +1,67 @@
+﻿** Warnings
+     User level transactions are not supported for memory optimized objects.  You must disable the 'Include transactional
+       scripts' deployment option to successfully deploy changes to memory optimized objects.
+
+** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [dbo].[usp_GetPopSlotId] (Procedure)
+       [dbo].[usp_GetPopSlotIdNode0] (Procedure)
+       [dbo].[usp_GetPopSlotIdNode1] (Procedure)
+       [dbo].[usp_GetPushSlotId] (Procedure)
+       [dbo].[usp_GetPushSlotIdNode0] (Procedure)
+       [dbo].[usp_GetPushSlotIdNode1] (Procedure)
+       [dbo].[usp_PushMessageImOltpNoSequence] (Procedure)
+     Create
+       [dbo].[usp_GetPopSlotId] (Procedure)
+       [dbo].[usp_GetPopSlotIdNode0] (Procedure)
+       [dbo].[usp_GetPopSlotIdNode1] (Procedure)
+       [dbo].[usp_GetPushSlotId] (Procedure)
+       [dbo].[usp_GetPushSlotIdNode0] (Procedure)
+       [dbo].[usp_GetPushSlotIdNode1] (Procedure)
+       [dbo].[usp_PushMessageImOltpNoSequence] (Procedure)
+       [dbo].[usp_PopMessageDiskNoSequenceNode0] (Procedure)
+       [dbo].[usp_PopMessageDiskNoSequenceNode1] (Procedure)
+       [dbo].[usp_PopMessageDiskSequence] (Procedure)
+       [dbo].[usp_PopMessageDiskSequenceNode0] (Procedure)
+       [dbo].[usp_PopMessageDiskSequenceNode1] (Procedure)
+       [dbo].[usp_PushMessageDiskNoSequence] (Procedure)
+       [dbo].[usp_PushMessageDiskNoSequenceNode0] (Procedure)
+       [dbo].[usp_PushMessageDiskNoSequenceNode1] (Procedure)
+       [dbo].[usp_PushMessageDiskSequenceNode0] (Procedure)
+       [dbo].[usp_PushMessageDiskSequenceNode1] (Procedure)
+       [dbo].[usp_PushMessageImOltpSequence] (Procedure)
+       [dbo].[usp_LmaxPushImOltpSequence] (Procedure)
+     Alter
+       [dbo].[usp_InsertSpid] (Procedure)
+       [dbo].[usp_PushMessageDiskSequence] (Procedure)
+       [dbo].[usp_LmaxPopDiskNumaNoSequence] (Procedure)
+       [dbo].[usp_LmaxPopDiskNumaSequence] (Procedure)
+       [dbo].[usp_LmaxPushDiskNoSequence] (Procedure)
+       [dbo].[usp_LmaxPushDiskNumaNoSequence] (Procedure)
+       [dbo].[usp_LmaxPushDiskNumaSequence] (Procedure)
+       [dbo].[usp_LmaxPushImOltpNoSequence] (Procedure)
+
+** Supporting actions
+     Refresh
+       [dbo].[usp_PopMessageNoSequence] (Procedure)
+       [dbo].[usp_LmaxPopDiskNoSequence] (Procedure)
+       [dbo].[usp_LmaxPushDiskSequence] (Procedure)
+
+If this deployment is executed, changes to [dbo].[usp_GetPopSlotId] might introduce run-time errors in [dbo].[usp_PushMessageNoSequence].
+If this deployment is executed, changes to [dbo].[usp_GetPopSlotIdNode0] might introduce run-time errors in [dbo].[usp_PopMessageDiskNode0V4].
+If this deployment is executed, changes to [dbo].[usp_GetPopSlotIdNode1] might introduce run-time errors in [dbo].[usp_PopMessageDiskNode1V4].
+If this deployment is executed, changes to [dbo].[usp_GetPushSlotId] might introduce run-time errors in [dbo].[usp_LmaxPushImOltpV1].
+If this deployment is executed, changes to [dbo].[usp_GetPushSlotId] might introduce run-time errors in [dbo].[usp_PushMessageDiskV1].
+If this deployment is executed, changes to [dbo].[usp_GetPushSlotIdNode0] might introduce run-time errors in [dbo].[usp_PushMessageDiskNode0V4].
+If this deployment is executed, changes to [dbo].[usp_GetPushSlotIdNode1] might introduce run-time errors in [dbo].[usp_PushMessageDiskNode1V4].
+

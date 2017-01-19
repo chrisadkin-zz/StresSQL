@@ -1,0 +1,83 @@
+30/12/2016 18:24:59	This log contains information about the import schema operation into project 'StressTest' on computer 'WIN-9K68K80GG9D' by user 'Administrator'.
+30/12/2016 18:24:59	Import of database schema has started.
+30/12/2016 18:25:06	Gathering database options
+30/12/2016 18:25:06	Gathering users
+30/12/2016 18:25:06	Gathering roles
+30/12/2016 18:25:06	Gathering application roles
+30/12/2016 18:25:06	Gathering role memberships
+30/12/2016 18:25:06	Gathering filegroups
+30/12/2016 18:25:06	Gathering full-text catalogs
+30/12/2016 18:25:06	Gathering assemblies
+30/12/2016 18:25:07	Gathering certificates
+30/12/2016 18:25:07	Gathering asymmetric keys
+30/12/2016 18:25:07	Gathering symmetric keys
+30/12/2016 18:25:07	Gathering encrypted symmetric keys
+30/12/2016 18:25:07	Gathering schemas
+30/12/2016 18:25:07	Gathering XML schema collections
+30/12/2016 18:25:07	Gathering user-defined data types
+30/12/2016 18:25:07	Gathering user-defined types
+30/12/2016 18:25:07	Gathering table types
+30/12/2016 18:25:07	Gathering unique keys for table types
+30/12/2016 18:25:07	Gathering primary keys for table types
+30/12/2016 18:25:07	Gathering indexes for table types
+30/12/2016 18:25:07	Gathering check constraints for table types
+30/12/2016 18:25:07	Gathering default constraints for table types
+30/12/2016 18:25:07	Gathering partition functions
+30/12/2016 18:25:07	Gathering partition schemes
+30/12/2016 18:25:07	Gathering functions
+30/12/2016 18:25:07	Gathering encrypted functions
+30/12/2016 18:25:07	Gathering aggregates
+30/12/2016 18:25:07	Gathering procedures
+30/12/2016 18:25:07	Gathering encrypted procedures
+30/12/2016 18:25:07	Gathering tables
+30/12/2016 18:25:07	Gathering primary keys
+30/12/2016 18:25:07	Gathering unique constraints
+30/12/2016 18:25:07	Gathering foreign keys
+30/12/2016 18:25:07	Gathering default constraints
+30/12/2016 18:25:07	Gathering check constraints
+30/12/2016 18:25:07	Gathering views
+30/12/2016 18:25:07	Gathering encrypted views
+30/12/2016 18:25:07	Gathering indexes
+30/12/2016 18:25:07	Gathering statistics
+30/12/2016 18:25:07	Gathering full-text index stoplists
+30/12/2016 18:25:07	Gathering search property lists
+30/12/2016 18:25:07	Gathering search properties
+30/12/2016 18:25:07	Gathering full-text indexes
+30/12/2016 18:25:07	Gathering column store indexes
+30/12/2016 18:25:07	Gathering spatial indexes
+30/12/2016 18:25:07	Gathering XML indexes
+30/12/2016 18:25:07	Gathering Selective XML indexes
+30/12/2016 18:25:07	Gathering encrypted triggers
+30/12/2016 18:25:07	Gathering triggers
+30/12/2016 18:25:07	Gathering encrypted and clr ddl triggers
+30/12/2016 18:25:07	Gathering ddl triggers
+30/12/2016 18:25:07	Gathering synonyms
+30/12/2016 18:25:07	Gathering defaults
+30/12/2016 18:25:07	Gathering data constraint uddt bindings
+30/12/2016 18:25:07	Gathering rules
+30/12/2016 18:25:07	Gathering data constraint uddt bindings
+30/12/2016 18:25:07	Gathering message types
+30/12/2016 18:25:07	Gathering queues
+30/12/2016 18:25:07	Gathering contracts
+30/12/2016 18:25:07	Gathering services
+30/12/2016 18:25:07	Gathering event notifications
+30/12/2016 18:25:07	Gathering remote service bindings
+30/12/2016 18:25:07	Gathering broker priorities
+30/12/2016 18:25:07	Gathering signatures
+30/12/2016 18:25:07	Gathering data compression options
+30/12/2016 18:25:07	Gathering sequence types
+30/12/2016 18:25:07	Gathering security policies
+30/12/2016 18:25:07	Gather column encryption keys
+30/12/2016 18:25:07	Gathering column master keys
+30/12/2016 18:25:07	Gathering external data sources
+30/12/2016 18:25:07	Gathering external file formats
+30/12/2016 18:25:07	Gathering external tables
+30/12/2016 18:25:07	Gathering extended properties
+30/12/2016 18:25:07	Gathering credentials
+30/12/2016 18:25:07	Gathering logins
+30/12/2016 18:25:07	Gathering server audits
+30/12/2016 18:25:08	Scanning project for duplicate elements
+30/12/2016 18:25:08	Finished duplicate element processing
+30/12/2016 18:25:08	Finished importing database.
+30/12/2016 18:25:08	A summary of the import was saved to the following location: c:\users\administrator\documents\visual studio 2015\Projects\StressTest\StressTest\Import Schema Logs\StressTest_20161230062459.log
+30/12/2016 18:25:08	Click Finish to continue...

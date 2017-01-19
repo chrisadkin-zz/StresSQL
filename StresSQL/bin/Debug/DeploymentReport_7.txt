@@ -1,0 +1,22 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Alter
+       [dbo].[usp_InsertBitReverse] (Procedure)
+       [dbo].[usp_InsertGuid] (Procedure)
+       [dbo].[usp_InsertHashPart] (Procedure)
+       [dbo].[usp_LmaxPopDiskNoSequence] (Procedure)
+       [dbo].[usp_LmaxPopDiskNumaNoSequence] (Procedure)
+       [dbo].[usp_LmaxPopDiskNumaSequence] (Procedure)
+       [dbo].[usp_LmaxPopDiskSequence] (Procedure)
+       [dbo].[usp_StressTestHarness] (Procedure)
+
+** Supporting actions

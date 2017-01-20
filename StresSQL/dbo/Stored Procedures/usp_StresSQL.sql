@@ -422,9 +422,9 @@ BEGIN
 				WHERE       ists.Threads = @i
 				AND         ists.Test    = @Test
 				AND         ssts.[Rank]  = 5;
-			END;
-		
-			SET @i += 1;
+			END;	
         END;
+		
+		SET @i += 1;
 	END;
 END;

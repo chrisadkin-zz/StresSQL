@@ -27,3 +27,7 @@ C:\Users\cadkin\GitHub\StresSQL\StresSQL\bin\Debug\ClassLibrary1.dll
 C:\Users\cadkin\GitHub\StresSQL\StresSQL\bin\Debug\master.dacpac
 C:\Users\cadkin\GitHub\StresSQL\StresSQL\obj\Debug\StresSQL.dll
 C:\Users\cadkin\GitHub\StresSQL\StresSQL\obj\Debug\StresSQL.pdb
+C:\Users\cadkin\GitHub\StresSQL\StresSQL\obj\Debug\Model.xml
+C:\Users\cadkin\GitHub\StresSQL\StresSQL\obj\Debug\refactor.xml
+C:\Users\cadkin\GitHub\StresSQL\StresSQL\obj\Debug\postdeploy.sql
+C:\Users\cadkin\GitHub\StresSQL\StresSQL\obj\Debug\predeploy.sql

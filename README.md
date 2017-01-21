@@ -109,7 +109,12 @@ the project can only be deployed in its entirety to version of SQL Server from 2
   Procedure  to  push messages into  NUMA  node 1 queue clustered index.
 
 - Stored procedures  for pushing messages into  a disk based clustered  index key using code  based in 
-  the "LMax disruptor pattern"
+  the "LMax disruptor pattern" using queues implemented via in-memory tables
+  
+  ###usp_PushMessageImOltpSequence   
+  
+  ###usp_PushMessageImOltpNoSequence   
+  
 
 ##How To Deploy The Project
 
@@ -166,40 +171,40 @@ this procedure inserts rows representing execution stats for a test in the Stres
 assumes to be  in the same database which  it itself resides in,an description  of the input parameters
 this stored procedure takes is as follows:
 
-  |                              |                                             |                      |
-  | Parameter                    | Description                                 | Mandatory (Y/N)      |
-  | ---------------------------- | ------------------------------------------- | -------------------- |
-  |                              |                                             |                      |
-  |                              |                                             |                      |
-  |  @Test                       | Name of the test to run.                    |           Y          |
-  |                              |                                             |                      |
-  |                              |                                             |                      |
-  |  @StartThread                | Start number of the number of threads to    |           Y          |
-  |                              | run the test with.                          |                      |
-  |                              |                                             |                      |
-  |                              |                                             |                      |                 
-  |  @EndThread                  | Start number of the number of threads to    |           Y          |
-  |                              | runthe test with.                           |                      | 
-  |                              |                                             |                      |
-  |                              |                                             |                      |
-  |  @Procedure1                 | Name of the first procedure to run.         |           Y          |
-  |                              |                                             |                      |
-  |                              |                                             |                      |
-  |  @Procedure2                 | Name of the second procedure to run         |           N          |
-  |                              |                                             |                      |
-  |                              |                                             |                      |
-  |  @InitProcedure              | Test initialisation procedure               |           N          |
-  |                              |                                             |                      |
-  |                              |                                             |                      | 
-  |  @TransactionsPerThread      | Number of transactions to run per thread,   |           N          |
-  |                              | equates to rows to insert for usp_Insert    |                      |
-  |                              | procedures and messages for the usp_LMax    |                      |
-  |                              | procedures, defaults to 200,000             |                      |
-  |                              |                                             |                      |
-  |                              |                                             |                      |
-  |  @CommitBatchSize            | Number of items to batch together per       |           N          |
-  |                              | commit, defaults to 1 and is always 1       |                      |
-  |                              | for the LMax procedures.                    |                      |
+|                              |                                             |                      |
+| Parameter                    | Description                                 | Mandatory (Y/N)      |
+| ---------------------------- | ------------------------------------------- | -------------------- |
+|                              |                                             |                      |
+|                              |                                             |                      |
+|  @Test                       | Name of the test to run.                    |           Y          |
+|                              |                                             |                      |
+|                              |                                             |                      |
+|  @StartThread                | Start number of the number of threads to    |           Y          |
+|                              | run the test with.                          |                      |
+|                              |                                             |                      |
+|                              |                                             |                      |                 
+|  @EndThread                  | Start number of the number of threads to    |           Y          |
+|                              | runthe test with.                           |                      | 
+|                              |                                             |                      |
+|                              |                                             |                      |
+|  @Procedure1                 | Name of the first procedure to run.         |           Y          |
+|                              |                                             |                      |
+|                              |                                             |                      |
+|  @Procedure2                 | Name of the second procedure to run         |           N          |
+|                              |                                             |                      |
+|                              |                                             |                      |
+|  @InitProcedure              | Test initialisation procedure               |           N          |
+|                              |                                             |                      |
+|                              |                                             |                      | 
+|  @TransactionsPerThread      | Number of transactions to run per thread,   |           N          |
+|                              | equates to rows to insert for usp_Insert    |                      |
+|                              | procedures and messages for the usp_LMax    |                      |
+|                              | procedures, defaults to 200,000             |                      |
+|                              |                                             |                      |
+|                              |                                             |                      |
+|  @CommitBatchSize            | Number of items to batch together per       |           N          |
+|                              | commit, defaults to 1 and is always 1       |                      |
+|                              | for the LMax procedures.                    |                      |
 
 The test harness assumes:
 

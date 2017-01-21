@@ -168,24 +168,16 @@ this procedure inserts rows representing execution stats for a test in the Stres
 assumes to be in the same database which it itself resides in,an description of the input parameters
 this stored procedure takes is as follows:
 
-               |                       |           |
  Parameter          | Description                 | Mandatory (Y/N)   |
  ---------------------------- | ------------------------------------------- | -------------------- |
  @Test            | Name of the test to run.          |      Y     |
- @StartThread        | Start number of the number of threads to  |      Y     |
-               | run the test with.             |           |
- @EndThread         | Start number of the number of threads to  |      Y     |
-               | runthe test with.              |           | 
+ @StartThread        | Start number of the number of threads to run the test with.             |        Y   |
+ @EndThread         | Start number of the number of threads to runthe test with.              |Y           | 
  @Procedure1         | Name of the first procedure to run.     |      Y     |
  @Procedure2         | Name of the second procedure to run     |      N     |
  @InitProcedure       | Test initialisation procedure        |      N     |
- @TransactionsPerThread   | Number of transactions to run per thread,  |      N     |
-               | equates to rows to insert for usp_Insert  |           |
-               | procedures and messages for the usp_LMax  |           |
-               | procedures, defaults to 200,000       |           |
- @CommitBatchSize      | Number of items to batch together per    |      N     |
-               | commit, defaults to 1 and is always 1    |           |
-               | for the LMax procedures.          |           |
+ @TransactionsPerThread   | Number of transactions to run per thread, equates to rows to insert for usp_Insert procedures and messages for the usp_LMax procedures, defaults to 200,000       |N           |
+ @CommitBatchSize      | Number of items to batch together per commit, defaults to 1 and is always 1 for the LMax procedures.          |  N         |
 
 The test harness assumes:
 

@@ -143,6 +143,7 @@ this stored procedure takes is as follows:
 
   |                              |                                             |                      |
   | Parameter                    | Description                                 | Mandatory (Y/N)      |
+  | ---------------------------- |:-------------------------------------------:|---------------------:|
   |                              |                                             |                      |
   |                              |                                             |                      |
   |  @Test                       | Name of the test to run.                    |           Y          |

@@ -171,34 +171,18 @@ this stored procedure takes is as follows:
                |                       |           |
  Parameter          | Description                 | Mandatory (Y/N)   |
  ---------------------------- | ------------------------------------------- | -------------------- |
-               |                       |           |
-               |                       |           |
  @Test            | Name of the test to run.          |      Y     |
-               |                       |           |
-               |                       |           |
  @StartThread        | Start number of the number of threads to  |      Y     |
                | run the test with.             |           |
-               |                       |           |
-               |                       |           |         
  @EndThread         | Start number of the number of threads to  |      Y     |
                | runthe test with.              |           | 
-               |                       |           |
-               |                       |           |
  @Procedure1         | Name of the first procedure to run.     |      Y     |
-               |                       |           |
-               |                       |           |
  @Procedure2         | Name of the second procedure to run     |      N     |
-               |                       |           |
-               |                       |           |
  @InitProcedure       | Test initialisation procedure        |      N     |
-               |                       |           |
-               |                       |           | 
  @TransactionsPerThread   | Number of transactions to run per thread,  |      N     |
                | equates to rows to insert for usp_Insert  |           |
                | procedures and messages for the usp_LMax  |           |
                | procedures, defaults to 200,000       |           |
-               |                       |           |
-               |                       |           |
  @CommitBatchSize      | Number of items to batch together per    |      N     |
                | commit, defaults to 1 and is always 1    |           |
                | for the LMax procedures.          |           |
@@ -214,7 +198,7 @@ The test harness assumes:
 
 ##Examples:
 
-1. Lmax disk based table push and pull working at the same time with 1 and then 2 threads, with 1000
+- Lmax disk based table push and pull working at the same time with 1 and then 2 threads, with 1000
   messages pushed and pulled
 
 ```
@@ -233,7 +217,7 @@ EXECUTE @RC = [dbo].[usp_StresSQL]
 GO
 ```
 
-2. Lmax disk based table push *only* with 1 and then 2 threads, with 1000 messages pushed per thread
+- Lmax disk based table push *only* with 1 and then 2 threads, with 1000 messages pushed per thread
 
 ```
 USE [StresSQL]
@@ -250,7 +234,7 @@ EXECUTE @RC = [dbo].[usp_StresSQL]
 GO
 ```
 
-3. Singleton insert with cluster key based on a @@SPID offset
+- Singleton insert with cluster key based on a @@SPID offset
 
 ```
 USE [StresSQL]

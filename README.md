@@ -1,5 +1,4 @@
 ##Overview
-##========
 
 This project will  build on all versions  of SQL Server  from 2014 onwards, the aim of this code is  to 
 provide a test harness which code me used to execute up to 2 different  user supplied stored procedures
@@ -22,7 +21,6 @@ The sample objects include which accompany  the project include memory optimised
 the project can only be deployed in its entirety to version of SQL Server from 2014 onwards.
  
 ##What The Project Contains
-##=========================
  
 - Core stress test harness objects:
 
@@ -89,7 +87,6 @@ the project can only be deployed in its entirety to version of SQL Server from 2
   the "LMax disruptor pattern"
 
 ##How To Deploy The Project
-##=========================
 
 1. A SQL Server 2014 or 2016 instance is required in order to deploy the StresSQL project
 
@@ -126,7 +123,6 @@ GO
    slots.
 
 ##Using The Test Harness
-##======================
 
 The stress test harness is invoked by calling the [dbo].[usp_StresSQL] stored procedure:
 
@@ -248,7 +244,6 @@ EXECUTE @RC = [dbo].[usp_StresSQL]
 GO
 
 ##Suggestions For Configuring SQL Server Prior To Tesing
-##======================================================
 
 1. Have at least one file in the file group FG_01 per logical processor, or two if your storage is high
    performance flash based.
@@ -281,7 +276,6 @@ GO
    such that the workload runs on NUMA node 0 in one test and then NUMA node 1 in another.
 
 ##Disclaimer
-##==========
 
 This software is   used at the  users  own risk, it is purely  intended  to provide a  means of putting  
 the  database engine under stress, as  such it should  not be used  against production envronments. Any

@@ -30,10 +30,17 @@ the project can only be deployed in its entirety to version of SQL Server from 2
 - Stored  procedures for testing  the  scalability of single  inserts using different  clustered  index 
   clusters keys:
 
-  usp_InsertBitReverse - bit reversed bigint key
-  usp_InsertGuid       - guid
-  usp_InsertHashPart   - hash partitioned clustered index
-  usp_InsertSpid       - key based on @@SPID offset ( @@SPID * 10000000000 )
+  ###usp_InsertBitReverse 
+  bit reversed bigint key
+  
+  ###usp_InsertGuid       
+  guid
+  
+  ###usp_InsertHashPart   
+  hash partitioned clustered index
+  
+  ###usp_InsertSpid       
+  key based on @@SPID offset ( @@SPID * 10000000000 )
 
 - Stored  procedures for  pushing  messages  into a  disk based  clustered  index key using  code based
   in  the  "LMax disruptor pattern"
@@ -41,47 +48,65 @@ the project can only be deployed in its entirety to version of SQL Server from 2
 - Non-NUMA aware stored procedures for  pushing into a queue using a sequence object to obtain the id 
   of the slot messages are intended to be pushed into:
 
-  usp_LMaxDiskInit                   - procedure  to set reference count to 0 for each queue slot prior
-                                       to each test.
-  usp_LmaxPushDiskSequence           - main procedure to run the test, it invokes 
-                                       usp_PushMessageDiskSequence from within a loop.
-  usp_PushMessageDiskSequence        - procedure to push individual messages into the queue.
+  ###usp_LMaxDiskInit                   
+  procedure  to set reference count to 0 for each queue slot prior to each test.
+  
+  ###usp_LmaxPushDiskSequence           
+  main procedure to run the test, it invokes usp_PushMessageDiskSequence from within a loop.
+  
+  ###usp_PushMessageDiskSequence        
+  Procedure to push individual messages into the queue.
   
 - Non-NUMA aware stored  procedures for pushing  into a queue using an  in-memory table to obtain the
   id of the slot messages are intended to be pushed into:
 
-  usp_LMaxDiskInit                   - procedure to set reference count to 0 for each queue slot prior
-                                       to each test.
-  usp_LmaxPushDiskNoSequence         - main procedure to run the test, it invokes 
-                                       usp_PushMessageDiskNoSequence from within a loop.
-  usp_PushMessageDiskNoSequence      - procedure to push individual messages into the queue.
-  usp_GetPushSlotId                  - procedure to obtain the id for a slot to push a message into
+  ###usp_LMaxDiskInit                   
+  procedure to set reference count to 0 for each queue slot prior to each test.
+  
+  ###usp_LmaxPushDiskNoSequence         
+  main procedure to run the test, it invokes usp_PushMessageDiskNoSequence from within a loop.
+  
+  ###usp_PushMessageDiskNoSequence      
+  procedure to push individual messages into the queue.
+  
+  ###usp_GetPushSlotId                  
+  procedure to obtain the id for a slot to push a message into
 
 - NUMA aware push  procedures using  memory optimised  table to  generate the  number of the slot to 
   push the message into
 
-  usp_LMaxDiskNumaInit               - Procedure  to  set  reference  count  to  zero for each slot in 
-                                       queues
-  usp_LmaxPushDiskNumaNoSequence     - main push procedure
-  usp_GetPushSlotIdNode0             - procedure  to  obtain  the  slot  id for pushing  messages into 
-                                       queue for NUMA node 0
-  usp_GetPushSlotIdNode1             - procedure  to   obtain  the  slot id  forpushing  messages into 
-                                       queue for NUMA node 0
-  usp_PushMessageDiskNoSequenceNode0 - procedure  to push  messages  into NUMA  node 0 queue clustered
-                                       index
-  usp_PushMessageDiskNoSequenceNode1 - procedure  to  push  messages into NUMA  node 1 queue clustered
-                                       index
+  ###usp_LMaxDiskNumaInit               
+  Procedure  to  set  reference  count  to  zero for each slot in queues.
+  
+  ###usp_LmaxPushDiskNumaNoSequence     
+  main push procedure
+  
+  ###usp_GetPushSlotIdNode0             
+  procedure  to  obtain  the  slot  id for pushing  messages into queue for NUMA node 0.
+  
+  ###usp_GetPushSlotIdNode1               
+  procedure  to   obtain  the  slot id  forpushing  messages into queue for NUMA node 0.
+
+  ###usp_PushMessageDiskNoSequenceNode0
+  procedure  to push  messages  into NUMA  node 0 queue clustered index.
+  
+  ###usp_PushMessageDiskNoSequenceNode1
+  procedure  to  push  messages into NUMA  node 1 queue clustered index.
  
 - NUMA  aware  push procedures using  sequence  objects to generate the number  of the  slot to push
   the message into
 
-  usp_LMaxDiskNumaInit               - Procedure  to  set  reference  count  to  zero for each slot in 
-                                       queues
-  usp_LmaxPushDiskNumaSequence       - main push procedure
-  usp_PushMessageDiskSequenceNode0   - procedure to  push  messages  into  NUMA node 0 queue clustered 
-                                       index
-  usp_PushMessageDiskSequenceNode1   - procedure  to  push messages into  NUMA  node 1 queue clustered 
-                                       index
+  ###usp_LMaxDiskNumaInit               
+  Procedure  to  set  reference  count  to  zero for each slot in queues.
+  
+  ###usp_LmaxPushDiskNumaSequence       
+  Main push procedure.
+  
+  ###usp_PushMessageDiskSequenceNode0   
+  Procedure to  push  messages  into  NUMA node 0 queue clustered index.
+  
+  ###usp_PushMessageDiskSequenceNode1   
+  Procedure  to  push messages into  NUMA  node 1 queue clustered index.
 
 - Stored procedures  for pushing messages into  a disk based clustered  index key using code  based in 
   the "LMax disruptor pattern"

@@ -1,10 +1,10 @@
 #Overview
+	This  visual  studuio project  will build on  all  versions   of SQL  Server  from  2014
+	onwards, its  aim is to  provide a  test harness which can  be  used to execute up  to 2
+	different  user supplied stored  procedures  concurrently using thread counts  specified
+	by a user supplied lower and upper boundaries.	
 
-This project will build on all versions of SQL Server from 2014 onwards, the aim of this code is to 
-provide a test harness which code me used to execute up to 2 different user supplied stored procedures
-and specify a starting thread count and an end count, the harness will then execute the user supplied 
-code for each thread count between the start and end thread count boundaries supplied. The harness
-will gather the following statistics for each execution:
+	The following statistics are gathered for each execution:
 
 - Start and end times
 - Throughput in transactions per second
@@ -280,4 +280,4 @@ GO
 This software is  used at the users own risk, it is purely intended to provide a means of putting 
 the database engine under stress, as such it should not be used against production envronments. Any
 commitment to fix any potential bugs and or make enhancements is at the sole discretion of its author
-in terms of if and when to carry this work out.
+in terms of if and when such work is carried out.

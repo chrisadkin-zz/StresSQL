@@ -29,82 +29,82 @@ the project can only be deployed in its entirety to version of SQL Server from 2
 
  ##Stored procedures for creating database engine stress using singleton inserts:
 
- ###usp_InsertBitReverse 
+ __usp_InsertBitReverse__
  Performs singelton inserts into a clustered index using a *bit reversed* key.
  
- ###usp_InsertGuid    
+ __usp_InsertGuid__    
  Performs singelton inserts into a clustered index using a *GUID* key.
  
- ###usp_InsertHashPart  
+ __usp_InsertHashPart__  
  Performs singelton inserts into a partitioned clustered index using a *hash* key.
   
- ###usp_InsertSpid    
+ __usp_InsertSpid__    
   Performs singelton inserts into a clustered index using a key based on *@@SPID offset* ( @@SPID * 10000000000 ).
  
  ##Procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using a sequence object for slot id generation
 
- ###usp_LMaxDiskInit          
+ __usp_LMaxDiskInit__          
  Procedure to set reference count to 0 for each queue slot prior to each test.
  
- ###usp_LmaxPushDiskSequence      
+ __usp_LmaxPushDiskSequence__      
  Main procedure to run the test, it invokes usp_PushMessageDiskSequence from within a loop.
  
- ###usp_PushMessageDiskSequence    
+ __usp_PushMessageDiskSequence__    
  Procedure to push individual messages into the queue.
 
  ##NUMA aware procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using a sequence object for slot id generation
 
- ###usp_LMaxDiskNumaInit        
+ __usp_LMaxDiskNumaInit__        
  Procedure to set reference count to zero for each slot in queues.
  
- ###usp_LmaxPushDiskNumaSequence    
+ __usp_LmaxPushDiskNumaSequence__    
  Main push procedure.
  
- ###usp_PushMessageDiskSequenceNode0  
+ __usp_PushMessageDiskSequenceNode0__  
  Procedure to push messages into NUMA node 0 queue clustered index.
  
- ###usp_PushMessageDiskSequenceNode1  
+ __usp_PushMessageDiskSequenceNode1__  
  Procedure to push messages into NUMA node 1 queue clustered index.
  
  ##Procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using an in-memory table for slot id generation
 
- ###usp_LMaxDiskInit          
+ __usp_LMaxDiskInit__          
  Procedure to set reference count to 0 for each queue slot prior to each test.
  
- ###usp_LmaxPushDiskNoSequence     
+ __usp_LmaxPushDiskNoSequence__     
  Main procedure to run the test, it invokes usp_PushMessageDiskNoSequence from within a loop.
  
- ###usp_PushMessageDiskNoSequence   
+ __usp_PushMessageDiskNoSequence__   
  Procedure to push individual messages into the queue.
  
- ###usp_GetPushSlotId         
+ __usp_GetPushSlotId__         
  Procedure to obtain the id for a slot to push a message into
 
  ##NUMA aware procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using an in-memory table for slot id generation
 
- ###usp_LMaxDiskNumaInit        
+ __usp_LMaxDiskNumaInit__        
  Procedure to set reference count to zero for each slot in queues.
  
- ###usp_LmaxPushDiskNumaNoSequence   
+ __usp_LmaxPushDiskNumaNoSequence__  
  Main push procedure.
  
- ###usp_GetPushSlotIdNode0       
+ __usp_GetPushSlotIdNode0__       
  Procedure to obtain the slot id for pushing messages into queue for NUMA node 0.
  
- ###usp_GetPushSlotIdNode1        
+ __usp_GetPushSlotIdNode1__     
  Procedure to  obtain the slot id forpushing messages into queue for NUMA node 0.
 
- ###usp_PushMessageDiskNoSequenceNode0
+ __usp_PushMessageDiskNoSequenceNode0__
  Procedure to push messages into NUMA node 0 queue clustered index.
  
- ###usp_PushMessageDiskNoSequenceNode1
+ __usp_PushMessageDiskNoSequenceNode1__
  Procedure to push messages into NUMA node 1 queue clustered index.
  
  ##Procedures for pushing messages index a in-memory queue based on the LMax disruptor pattern using an in-memory table for slot id generation
  
- ###usp_PushMessageImOltpSequence  
+ __usp_PushMessageImOltpSequence__  
  
- ###usp_PushMessageImOltpNoSequence  
+ __usp_PushMessageImOltpNoSequence__  
  
 
 ##How To Deploy The Project

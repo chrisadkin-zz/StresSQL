@@ -1,4 +1,4 @@
--> #SresSQL 1.0 -<
+#SresSQL 1.0 - Overview
 
 This  visual  studio project  will build on  all  versions   of SQL  Server  from  2014
 onwards, its  aim is to  provide a  test harness which can  be  used to execute up  to 2

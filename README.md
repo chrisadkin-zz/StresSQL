@@ -115,6 +115,7 @@ the project can only be deployed in its entirety to version of SQL Server from 2
    as thiS provides access to the underlying operating system, this should not ideally be enabled for
    production instances. 
 
+```
 EXEC sp_configure 'show advanced options', 1; 
 GO 
 -- To update the currently configured value for advanced options. 
@@ -126,9 +127,11 @@ GO
 -- To update the currently configured value for this feature. 
 RECONFIGURE; 
 GO
+```
 
 3. Enable CLR integration:
 
+```
 sp_configure 'show advanced options', 1; 
 GO 
 RECONFIGURE; 
@@ -137,7 +140,8 @@ sp_configure 'clr enabled', 1;
 GO 
 RECONFIGURE; 
 GO 
- 
+```
+
 4. Publish the project, on a MacBook Pro (Intel i7 and 16GB of memory) with Windows 10 running
    under bootcamp and SQL Server 2016, the project takes around 17.5 minutes to run,the bulk of this
    time is that spent populating the queue tables (MyQLMax, MyQLMaxNode0 and MyQLMaxNode1) with empty
@@ -147,6 +151,7 @@ GO
 
 The stress test harness is invoked by calling the [dbo].[usp_StresSQL] stored procedure:
 
+```
 EXECUTE @RC = [dbo].[usp_StresSQL] 
   @Test
  ,@StartThread
@@ -157,45 +162,46 @@ EXECUTE @RC = [dbo].[usp_StresSQL]
  ,@TransactionsPerThread
  ,@CommitBatchSize
 GO
+```
 
 this procedure inserts rows representing execution stats for a test in the StresSQLStats table which it
 assumes to be in the same database which it itself resides in,an description of the input parameters
 this stored procedure takes is as follows:
 
-|               |                       |           |
-| Parameter          | Description                 | Mandatory (Y/N)   |
-| ---------------------------- | ------------------------------------------- | -------------------- |
-|               |                       |           |
-|               |                       |           |
-| @Test            | Name of the test to run.          |      Y     |
-|               |                       |           |
-|               |                       |           |
-| @StartThread        | Start number of the number of threads to  |      Y     |
-|               | run the test with.             |           |
-|               |                       |           |
-|               |                       |           |         
-| @EndThread         | Start number of the number of threads to  |      Y     |
-|               | runthe test with.              |           | 
-|               |                       |           |
-|               |                       |           |
-| @Procedure1         | Name of the first procedure to run.     |      Y     |
-|               |                       |           |
-|               |                       |           |
-| @Procedure2         | Name of the second procedure to run     |      N     |
-|               |                       |           |
-|               |                       |           |
-| @InitProcedure       | Test initialisation procedure        |      N     |
-|               |                       |           |
-|               |                       |           | 
-| @TransactionsPerThread   | Number of transactions to run per thread,  |      N     |
-|               | equates to rows to insert for usp_Insert  |           |
-|               | procedures and messages for the usp_LMax  |           |
-|               | procedures, defaults to 200,000       |           |
-|               |                       |           |
-|               |                       |           |
-| @CommitBatchSize      | Number of items to batch together per    |      N     |
-|               | commit, defaults to 1 and is always 1    |           |
-|               | for the LMax procedures.          |           |
+               |                       |           |
+ Parameter          | Description                 | Mandatory (Y/N)   |
+ ---------------------------- | ------------------------------------------- | -------------------- |
+               |                       |           |
+               |                       |           |
+ @Test            | Name of the test to run.          |      Y     |
+               |                       |           |
+               |                       |           |
+ @StartThread        | Start number of the number of threads to  |      Y     |
+               | run the test with.             |           |
+               |                       |           |
+               |                       |           |         
+ @EndThread         | Start number of the number of threads to  |      Y     |
+               | runthe test with.              |           | 
+               |                       |           |
+               |                       |           |
+ @Procedure1         | Name of the first procedure to run.     |      Y     |
+               |                       |           |
+               |                       |           |
+ @Procedure2         | Name of the second procedure to run     |      N     |
+               |                       |           |
+               |                       |           |
+ @InitProcedure       | Test initialisation procedure        |      N     |
+               |                       |           |
+               |                       |           | 
+ @TransactionsPerThread   | Number of transactions to run per thread,  |      N     |
+               | equates to rows to insert for usp_Insert  |           |
+               | procedures and messages for the usp_LMax  |           |
+               | procedures, defaults to 200,000       |           |
+               |                       |           |
+               |                       |           |
+ @CommitBatchSize      | Number of items to batch together per    |      N     |
+               | commit, defaults to 1 and is always 1    |           |
+               | for the LMax procedures.          |           |
 
 The test harness assumes:
 
@@ -211,6 +217,7 @@ The test harness assumes:
 1. Lmax disk based table push and pull working at the same time with 1 and then 2 threads, with 1000
   messages pushed and pulled
 
+```
 USE [StresSQL]
 GO
 
@@ -224,9 +231,11 @@ EXECUTE @RC = [dbo].[usp_StresSQL]
  ,@Procedure2      = '[dbo].[usp_LmaxPopDiskNoSequence]'
  ,@TransactionsPerThread = 1000
 GO
+```
 
 2. Lmax disk based table push *only* with 1 and then 2 threads, with 1000 messages pushed per thread
 
+```
 USE [StresSQL]
 GO
 
@@ -239,9 +248,11 @@ EXECUTE @RC = [dbo].[usp_StresSQL]
  ,@Procedure1      = '[dbo].[usp_LmaxPushDiskNoSequence]'
  ,@TransactionsPerThread = 1000
 GO
+```
 
 3. Singleton insert with cluster key based on a @@SPID offset
 
+```
 USE [StresSQL]
 GO
 
@@ -254,6 +265,7 @@ EXECUTE @RC = [dbo].[usp_StresSQL]
  ,@Procedure1      = '[dbo].[usp_InsertSpid]'
  ,@TransactionsPerThread = 1000
 GO
+```
 
 ##Suggestions For Configuring SQL Server Prior To Tesing
 

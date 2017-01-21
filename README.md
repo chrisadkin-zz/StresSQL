@@ -1,10 +1,11 @@
-#Overview
-	This  visual  studuio project  will build on  all  versions   of SQL  Server  from  2014
-	onwards, its  aim is to  provide a  test harness which can  be  used to execute up  to 2
-	different  user supplied stored  procedures  concurrently using thread counts  specified
-	by a user supplied lower and upper boundaries.	
+# -> SresSQL 1.0 -<
 
-	The following statistics are gathered for each execution:
+This  visual  studio project  will build on  all  versions   of SQL  Server  from  2014
+onwards, its  aim is to  provide a  test harness which can  be  used to execute up  to 2
+different  user supplied stored  procedures  concurrently using thread counts  specified
+by a user supplied lower and upper boundaries.	
+
+The following statistics are gathered for each execution:
 
 - Start and end times
 - Throughput in transactions per second
@@ -12,13 +13,31 @@
 - Top 5 latch statistics by latch sleep time
 - Top 5 spinlock statistics by spins 
 
-The test harness it self is encapsulated by two objects:
+The test harness is encapsulated by two objects:
 
 - usp_StresSQL
 - StresSQLStats
+
+To illustrate how the test harness works, this example:
+
+```
+EXECUTE @RC = [dbo].[usp_StresSQL] 
+  @Test            = 'LMax disk no sequence push and pull'
+ ,@StartThread     = 1
+ ,@EndThread       = 3
+ ,@Procedure1      = '[dbo].[usp_LmaxPushDiskNoSequence]'
+ ,@TransactionsPerThread = 1000
+GO
+```
+
+will execute the [dbo].[usp_LmaxPushDiskNoSequence] procedure with 1000 messages pushed
+per thread, the harness will carry this out with a single thread to begin with, after
+this has executed StresSQLStats will be populated with execution, wait, latch and spinlock
+statistics. The harness will continue to carry out the exact same oprtation, but for two
+threads and then finally three.
  
-The sample objects include which accompany the project include memory optimised tables and, therefore
-the project can only be deployed in its entirety to version of SQL Server from 2014 onwards.
+The sample objects accompanying the project include memory optimised tables which is why 
+the dependancy on SQL Server from 2014 onwards exists.
  
 #What The Project Contains
  
@@ -41,7 +60,7 @@ the project can only be deployed in its entirety to version of SQL Server from 2
  __usp_InsertSpid__    
   Performs singelton inserts into a clustered index using a key based on *@@SPID offset* ( @@SPID * 10000000000 ).
  
- - Procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using a sequence object for slot id generation
+ - Procedures for pushing messages into a disk based queue based on the LMax disruptor pattern using a sequence object for slot id generation
 
  __usp_LMaxDiskInit__          
  Procedure to set reference count to 0 for each queue slot prior to each test.
@@ -52,7 +71,7 @@ the project can only be deployed in its entirety to version of SQL Server from 2
  __usp_PushMessageDiskSequence__    
  Procedure to push individual messages into the queue.
 
- - NUMA aware procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using a sequence object for slot id generation
+ - NUMA aware procedures for pushing messages into a disk based queue based on the LMax disruptor pattern using a sequence object for slot id generation
 
  __usp_LMaxDiskNumaInit__        
  Procedure to set reference count to zero for each slot in queues.
@@ -66,7 +85,7 @@ the project can only be deployed in its entirety to version of SQL Server from 2
  __usp_PushMessageDiskSequenceNode1__  
  Procedure to push messages into NUMA node 1 queue clustered index.
  
- - Procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using an in-memory table for slot id generation
+ - Procedures for pushing messages into a disk based queue based on the LMax disruptor pattern using an in-memory table for slot id generation
 
  __usp_LMaxDiskInit__          
  Procedure to set reference count to 0 for each queue slot prior to each test.
@@ -80,7 +99,7 @@ the project can only be deployed in its entirety to version of SQL Server from 2
  __usp_GetPushSlotId__         
  Procedure to obtain the id for a slot to push a message into
 
- - NUMA aware procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using an in-memory table for slot id generation
+ - NUMA aware procedures for pushing messages into a disk based queue based on the LMax disruptor pattern using an in-memory table for slot id generation
 
  __usp_LMaxDiskNumaInit__        
  Procedure to set reference count to zero for each slot in queues.
@@ -92,7 +111,7 @@ the project can only be deployed in its entirety to version of SQL Server from 2
  Procedure to obtain the slot id for pushing messages into queue for NUMA node 0.
  
  __usp_GetPushSlotIdNode1__     
- Procedure to  obtain the slot id forpushing messages into queue for NUMA node 0.
+ Procedure to  obtain the slot id forpushing messages into queue for NUMA node 1.
 
  __usp_PushMessageDiskNoSequenceNode0__
  Procedure to push messages into NUMA node 0 queue clustered index.
@@ -100,7 +119,7 @@ the project can only be deployed in its entirety to version of SQL Server from 2
  __usp_PushMessageDiskNoSequenceNode1__
  Procedure to push messages into NUMA node 1 queue clustered index.
  
- - Procedures for pushing messages index a in-memory queue based on the LMax disruptor pattern using an in-memory table for slot id generation
+ - Procedures for pushing messages into a in-memory queue based on the LMax disruptor pattern using an in-memory table for slot id generation
  
  __usp_PushMessageImOltpSequence__  
  
@@ -111,9 +130,8 @@ the project can only be deployed in its entirety to version of SQL Server from 2
 
 1. A SQL Server 2014 or 2016 instance is required in order to deploy the StresSQL project
 
-2. The StresSQL harness requires the ability to run xp_cmdshell, note that for security reasons 
-   as thiS provides access to the underlying operating system, this should not ideally be enabled for
-   production instances. 
+2. The StresSQL harness requires the ability to run xp_cmdshell, as this provides access to the underlying operating system, 
+   this should not be enabled on production instances. 
 
 ```
 EXEC sp_configure 'show advanced options', 1; 
@@ -149,7 +167,7 @@ GO
 
 ##Using The Test Harness
 
-The stress test harness is invoked by calling the [dbo].[usp_StresSQL] stored procedure:
+Use the [dbo].[usp_StresSQL] stored procedure to invoke the test harness:
 
 ```
 EXECUTE @RC = [dbo].[usp_StresSQL] 
@@ -164,9 +182,9 @@ EXECUTE @RC = [dbo].[usp_StresSQL]
 GO
 ```
 
-this procedure inserts rows representing execution stats for a test in the StresSQLStats table which it
-assumes to be in the same database which it itself resides in,an description of the input parameters
-this stored procedure takes is as follows:
+rows representing execution stats for a test are inserted into the StresSQLStats table, it
+is assumed that this resides in the same database that the test is performed against. The input parameters
+this stored procedure takes are as follows:
 
  Parameter          | Description                 | Mandatory (Y/N)   |
  ---------------------------- | ------------------------------------------- | -------------------- |
@@ -187,6 +205,8 @@ The test harness assumes:
 2. Both the buffer pool and plan cache should be cold prior to each test.
 
 3. All log file virtual log files should be in a reusable state prior to each test.
+
+4. All queue tables have 4,000,000 message slots.
 
 ##Examples:
 
@@ -248,30 +268,33 @@ GO
 1. Have at least one file in the file group FG_01 per logical processor, or two if your storage is high
   performance flash based.
 
-2. To investigate spinlocks enable delayed durability, otherwise all you will observe is WRITELOG 
-  waits, the reasoning behind this is that with conventional durability the load on the engine will
-  never move past write log waits, unless you are using memory mapped log write IO to an NVDIMM via
-  Windows 2016 DAX.
+2. To investigate spinlock pressure, enable delayed durability, otherwise all you will observe is WRITELOG 
+  waits, unless you are using memory mapped log write IO to an NVDIMM via Windows 2016 DAX.
 
-3. For server with two sockets and more than six physcial cores per sockets, consider removing CPU
+3. If delayed durability is being used with low latency flash storage, consider turning off the 
+   multi-threaded log writer via trace flag 9038, otherwise you may see an excessive amount of spinlock
+   activity on the LOGFLASHQ and LOGCACHE_ACCESS spinlocks, note that this only applies to SQL Server
+   2016 onwards.
+
+4. For server with two sockets and more than six physcial cores per sockets, consider removing CPU
   0 on socket 0 from the affinity mask, this affinitizes the rest of the database engine away from
-  the log writer, when the instance starts up the log writer is usually assinged to NUMA node 0, CPU 
+  the log writer. When the instance starts up the log writer is usually assinged to NUMA node 0, CPU 
   0.
 
-4. The SQL Server scheduler is not hyper-threading aware and therefore makes no any distinction 
+5. The SQL Server scheduler is not hyper-threading aware and therefore makes no any distinction 
   between scheduling a task on a logical processor on a core that is already in use by a hyper-thread
   as opposed to a CPU core which has nothing running on it. A second hyper-thread running on a core
   may get up 25% of the total cores compute  capacity. To get cleaner looking graphs, consider
   either turning off hyper-threading at the Bios/EFI level or disabling all odd numbered logical
   processors in the CPU affinity mask.
 
-5. Turn on trace flag 2330, this stops spins on the OPT_IDX_STATS spinlock, this serialises access to
+6. Turn on trace flag 2330, this stops spins on the OPT_IDX_STATS spinlock, this serialises access to
   the internal memory structures associated with the missing index feature DMVs.
 
-6. Turn on trace flag 8008, this stops the SQL OS scheduling from using scheduler hints and can
+7. Turn on trace flag 8008, this stops the SQL OS scheduling from using scheduler hints and can
   result much more even CPU core utilisation.
 
-7. To quantify the overhead of CPU cache coherency on  passing around the cache line associated with
+8. To quantify the overhead of CPU cache coherency on  passing around the cache line associated with
   the LOGCACHE_ACCESS spinlock, consider altering the CPU affinity mask on a two socket server
   such that the workload runs on NUMA node 0 in one test and then NUMA node 1 in another.
 

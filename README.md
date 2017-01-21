@@ -22,12 +22,12 @@ the project can only be deployed in its entirety to version of SQL Server from 2
  
 #What The Project Contains
  
- ##Core stress test harness objects:
+ - Core stress test harness objects:
 
  usp_StresSQL
  StresSQLStats
 
- ##Stored procedures for creating database engine stress using singleton inserts:
+ - Stored procedures for creating database engine stress using singleton inserts:
 
  __usp_InsertBitReverse__
  Performs singelton inserts into a clustered index using a *bit reversed* key.
@@ -41,7 +41,7 @@ the project can only be deployed in its entirety to version of SQL Server from 2
  __usp_InsertSpid__    
   Performs singelton inserts into a clustered index using a key based on *@@SPID offset* ( @@SPID * 10000000000 ).
  
- ##Procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using a sequence object for slot id generation
+ - Procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using a sequence object for slot id generation
 
  __usp_LMaxDiskInit__          
  Procedure to set reference count to 0 for each queue slot prior to each test.
@@ -52,7 +52,7 @@ the project can only be deployed in its entirety to version of SQL Server from 2
  __usp_PushMessageDiskSequence__    
  Procedure to push individual messages into the queue.
 
- ##NUMA aware procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using a sequence object for slot id generation
+ - NUMA aware procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using a sequence object for slot id generation
 
  __usp_LMaxDiskNumaInit__        
  Procedure to set reference count to zero for each slot in queues.
@@ -66,7 +66,7 @@ the project can only be deployed in its entirety to version of SQL Server from 2
  __usp_PushMessageDiskSequenceNode1__  
  Procedure to push messages into NUMA node 1 queue clustered index.
  
- ##Procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using an in-memory table for slot id generation
+ - Procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using an in-memory table for slot id generation
 
  __usp_LMaxDiskInit__          
  Procedure to set reference count to 0 for each queue slot prior to each test.
@@ -80,7 +80,7 @@ the project can only be deployed in its entirety to version of SQL Server from 2
  __usp_GetPushSlotId__         
  Procedure to obtain the id for a slot to push a message into
 
- ##NUMA aware procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using an in-memory table for slot id generation
+ - NUMA aware procedures for pushing messages index a disk based queue based on the LMax disruptor pattern using an in-memory table for slot id generation
 
  __usp_LMaxDiskNumaInit__        
  Procedure to set reference count to zero for each slot in queues.
@@ -100,7 +100,7 @@ the project can only be deployed in its entirety to version of SQL Server from 2
  __usp_PushMessageDiskNoSequenceNode1__
  Procedure to push messages into NUMA node 1 queue clustered index.
  
- ##Procedures for pushing messages index a in-memory queue based on the LMax disruptor pattern using an in-memory table for slot id generation
+ - Procedures for pushing messages index a in-memory queue based on the LMax disruptor pattern using an in-memory table for slot id generation
  
  __usp_PushMessageImOltpSequence__  
  
@@ -109,11 +109,11 @@ the project can only be deployed in its entirety to version of SQL Server from 2
 
 ##How To Deploy The Project
 
-- 1. A SQL Server 2014 or 2016 instance is required in order to deploy the StresSQL project
+1. A SQL Server 2014 or 2016 instance is required in order to deploy the StresSQL project
 
-- 2. The StresSQL harness requires the ability to run xp_cmdshell, note that for security reasons 
-     as thiS provides access to the underlying operating system, this should not ideally be enabled for
-     production instances. 
+2. The StresSQL harness requires the ability to run xp_cmdshell, note that for security reasons 
+   as thiS provides access to the underlying operating system, this should not ideally be enabled for
+   production instances. 
 
 EXEC sp_configure 'show advanced options', 1; 
 GO 
@@ -127,7 +127,7 @@ GO
 RECONFIGURE; 
 GO
 
-- 3. Enable CLR integration:
+3. Enable CLR integration:
 
 sp_configure 'show advanced options', 1; 
 GO 
@@ -138,10 +138,10 @@ GO
 RECONFIGURE; 
 GO 
  
-- 4. Publish the project, on a MacBook Pro (Intel i7 and 16GB of memory) with Windows 10 running
-     under bootcamp and SQL Server 2016, the project takes around 17.5 minutes to run,the bulk of this
-     time is that spent populating the queue tables (MyQLMax, MyQLMaxNode0 and MyQLMaxNode1) with empty
-     slots.
+4. Publish the project, on a MacBook Pro (Intel i7 and 16GB of memory) with Windows 10 running
+   under bootcamp and SQL Server 2016, the project takes around 17.5 minutes to run,the bulk of this
+   time is that spent populating the queue tables (MyQLMax, MyQLMaxNode0 and MyQLMaxNode1) with empty
+   slots.
 
 ##Using The Test Harness
 

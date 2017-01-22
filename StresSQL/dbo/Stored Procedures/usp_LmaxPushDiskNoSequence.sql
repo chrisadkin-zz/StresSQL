@@ -1,14 +1,13 @@
 ﻿
-CREATE PROCEDURE [dbo].[usp_LmaxPushDiskNoSequence] 
+CREATE PROCEDURE [dbo].[usp_LmaxPushDiskNoSequence] @TransactionsPerThread int = 200000
 AS 
 BEGIN 
-    DECLARE  @QueueSize     int = 200000
-            ,@MessagePopped int
+    DECLARE  @MessagePopped int
             ,@i             int = 0;
 
     SET NOCOUNT ON;
 
-	WHILE @i <= @QueueSize 
+	WHILE @i <= @TransactionsPerThread 
 	BEGIN
 		EXEC dbo.usp_PushMessageDiskNoSequence @MessagePopped OUTPUT; 
 		SET @i += 1;

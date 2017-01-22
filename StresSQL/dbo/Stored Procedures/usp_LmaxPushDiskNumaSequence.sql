@@ -1,9 +1,8 @@
 ﻿
-CREATE PROCEDURE [dbo].[usp_LmaxPushDiskNumaSequence] 
+CREATE PROCEDURE [dbo].[usp_LmaxPushDiskNumaSequence] @TransactionsPerThread int = 200000
 AS 
 BEGIN 
-    DECLARE  @QueueSize     int = 200000
-            ,@MessagePushed int
+    DECLARE  @MessagePushed int
             ,@Slot          int
             ,@i             int = 0;
 
@@ -18,7 +17,7 @@ BEGIN
                WHERE  r.session_id     = @@SPID
 			   AND    s.parent_node_id = 0)
 	BEGIN
-		WHILE @i <= @QueueSize 
+		WHILE @i <= @TransactionsPerThread 
 		BEGIN
 			EXEC dbo.usp_PushMessageDiskSequenceNode0 @MessagePushed OUTPUT; 
 			SET @i += 1;
@@ -26,7 +25,7 @@ BEGIN
 	END
 	ELSE
 	BEGIN
-		WHILE @i <= @QueueSize 
+		WHILE @i <= @TransactionsPerThread 
 		BEGIN
 			EXEC dbo.usp_PushMessageDiskSequenceNode1 @MessagePushed OUTPUT; 
 			SET @i += 1;

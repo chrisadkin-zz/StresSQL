@@ -1,6 +1,6 @@
 #SresSQL 1.0 - Overview
 
-This  visual  studio project  will build on  all  versions   of SQL  Server  from  2014
+This  visual  studio project  will build on  all   versions   of SQL  Server  from  2014
 onwards, its  aim is to  provide a  test harness which can  be  used to execute up  to 2
 different  user supplied stored  procedures  concurrently using thread counts  specified
 by a user supplied lower and upper boundaries.	
@@ -38,6 +38,9 @@ threads and then finally three.
  
 The sample objects accompanying the project include memory optimised tables which is why 
 the dependancy on SQL Server from 2014 onwards exists.
+
+Going forwards, all the code that accompanies by blog will be added to this visual studio
+project.
  
 #What The Project Contains
  
@@ -125,7 +128,6 @@ the dependancy on SQL Server from 2014 onwards exists.
  
  __usp_PushMessageImOltpNoSequence__  
  
-
 ##How To Deploy The Project
 
 1. A SQL Server 2014 or 2016 instance is required in order to deploy the StresSQL project
@@ -165,7 +167,7 @@ GO
    time is that spent populating the queue tables (MyQLMax, MyQLMaxNode0 and MyQLMaxNode1) with empty
    slots.
 
-##Using The Test Harness
+##How To Use The Stress Test Harness
 
 Use the [dbo].[usp_StresSQL] stored procedure to invoke the test harness:
 
@@ -262,6 +264,20 @@ EXECUTE @RC = [dbo].[usp_StresSQL]
  ,@TransactionsPerThread = 1000
 GO
 ```
+
+##A Note On Using The NUMA Push/Pop Procedures
+
+When using the NUMA push and pop procedures, for example, if using the stored procedure:
+
+usp_LmaxPushDiskNumaNoSequence
+
+you must use its pop counterpart:
+
+usp_LmaxPopDiskNumaNoSequence
+
+and also the NUMA init procedure:
+
+usp_LMaxDiskNumaInit
 
 ##Suggestions For Configuring SQL Server Prior To Tesing
 

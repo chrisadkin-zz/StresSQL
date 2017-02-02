@@ -7,7 +7,7 @@ BEGIN ATOMIC
 
     DECLARE  @MessagePushed int
 	        ,@QueueSize     int = 200000
-			,@Slot          int;
+			,@Slot          bigint;
 
 	SET @MessagePushed = 0;
 

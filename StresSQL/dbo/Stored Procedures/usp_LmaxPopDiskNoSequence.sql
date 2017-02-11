@@ -9,7 +9,7 @@ BEGIN
 
 	WHILE @i <= @TransactionsPerThread 
 	BEGIN
-		EXEC dbo.usp_PopMessageNoSequence @MessagePopped OUTPUT; 
+		EXEC dbo.usp_PopMessageDiskNoSequence @MessagePopped OUTPUT; 
 		SET @i += 1;
 	END;
 END; 

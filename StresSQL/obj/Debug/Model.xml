@@ -4263,6 +4263,71 @@ END;]]></Value>
 				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_InsertSpid]&#xA;     @TransactionsPerThread int = 500000&#xA;    ,@CommitBatchSize       int = 2&#xA;AS" />
 			</Annotation>
 		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[usp_LMaxDiskInit]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+		UPDATE [dbo].[MyQLmax] SET reference_count = 0;
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[MyQLmax]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[MyQLmax].[reference_count]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="1" />
+				<Property Name="Length" Value="107" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_LMaxDiskInit] &#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[usp_LMaxDiskNumaInit]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+		UPDATE [dbo].[MyQLmaxNode0] SET reference_count = 0;
+		UPDATE [dbo].[MyQLmaxNode1] SET reference_count = 0;
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[MyQLmaxNode0]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[MyQLmaxNode0].[reference_count]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[MyQLmaxNode1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[MyQLmaxNode1].[reference_count]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="1" />
+				<Property Name="Length" Value="171" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_LMaxDiskNumaInit] &#xA;AS" />
+			</Annotation>
+		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[usp_LMaxDiskQSlotInit]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[
@@ -4516,71 +4581,6 @@ END;]]></Value>
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[usp_LMaxImOltpQSlotInit]  &#xA;WITH NATIVE_COMPILATION, SCHEMABINDING&#xA;AS&#xA;BEGIN ATOMIC&#xA;    WITH ( TRANSACTION ISOLATION LEVEL =" />
 			</Annotation>
 		</Element>
-		<Element Type="SqlProcedure" Name="[dbo].[usp_LMaxInit]">
-			<Property Name="BodyScript">
-				<Value><![CDATA[
-BEGIN
-		UPDATE [dbo].[MyQLmax] SET reference_count = 0;
-END;]]></Value>
-			</Property>
-			<Property Name="IsAnsiNullsOn" Value="True" />
-			<Relationship Name="BodyDependencies">
-				<Entry>
-					<References Name="[dbo].[MyQLmax]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[MyQLmax].[reference_count]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="Schema">
-				<Entry>
-					<References ExternalSource="BuiltIns" Name="[dbo]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="CreateOffset" Value="1" />
-				<Property Name="Length" Value="103" />
-				<Property Name="StartLine" Value="1" />
-				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_LMaxInit] &#xA;AS" />
-			</Annotation>
-		</Element>
-		<Element Type="SqlProcedure" Name="[dbo].[usp_LMaxNumaInit]">
-			<Property Name="BodyScript">
-				<Value><![CDATA[
-BEGIN
-		UPDATE [dbo].[MyQLmaxNode0] SET reference_count = 0;
-		UPDATE [dbo].[MyQLmaxNode1] SET reference_count = 0;
-END;]]></Value>
-			</Property>
-			<Property Name="IsAnsiNullsOn" Value="True" />
-			<Relationship Name="BodyDependencies">
-				<Entry>
-					<References Name="[dbo].[MyQLmaxNode0]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[MyQLmaxNode0].[reference_count]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[MyQLmaxNode1]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[MyQLmaxNode1].[reference_count]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="Schema">
-				<Entry>
-					<References ExternalSource="BuiltIns" Name="[dbo]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="CreateOffset" Value="1" />
-				<Property Name="Length" Value="167" />
-				<Property Name="StartLine" Value="1" />
-				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_LMaxNumaInit] &#xA;AS" />
-			</Annotation>
-		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[usp_LmaxPopDiskNoSequence]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[ 
@@ -4592,7 +4592,7 @@ BEGIN
 
 	WHILE @i <= @TransactionsPerThread 
 	BEGIN
-		EXEC dbo.usp_PopMessageNoSequence @MessagePopped OUTPUT; 
+		EXEC dbo.usp_PopMessageDiskNoSequence @MessagePopped OUTPUT; 
 		SET @i += 1;
 	END;
 END;]]></Value>
@@ -4609,7 +4609,7 @@ END;]]></Value>
 					<References Name="[dbo].[usp_LmaxPopDiskNoSequence].[@TransactionsPerThread]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[usp_PopMessageNoSequence]" />
+					<References Name="[dbo].[usp_PopMessageDiskNoSequence]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
@@ -4639,7 +4639,7 @@ END;]]></Value>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
 				<Property Name="CreateOffset" Value="1" />
-				<Property Name="Length" Value="319" />
+				<Property Name="Length" Value="323" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_LmaxPopDiskNoSequence] @TransactionsPerThread int = 200000&#xA;AS" />
@@ -4949,13 +4949,12 @@ END;]]></Value>
 			<Property Name="BodyScript">
 				<Value><![CDATA[ 
 BEGIN 
-    DECLARE  @QueueSize     int = 200000
-            ,@MessagePopped int
+    DECLARE  @MessagePopped int
             ,@i             int = 0;
 
     SET NOCOUNT ON;
 
-	WHILE @i <= @QueueSize 
+	WHILE @i <= @TransactionsPerThread 
 	BEGIN
 		EXEC dbo.usp_PushMessageDiskNoSequence @MessagePopped OUTPUT; 
 		SET @i += 1;
@@ -4971,10 +4970,30 @@ END;]]></Value>
 					<References ExternalSource="BuiltIns" Name="[int]" />
 				</Entry>
 				<Entry>
-					<References ExternalSource="BuiltIns" Name="[int]" />
+					<References Name="[dbo].[usp_LmaxPushDiskNoSequence].[@TransactionsPerThread]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[usp_PushMessageDiskNoSequence]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_LmaxPushDiskNoSequence].[@TransactionsPerThread]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[200000]]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
 				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
@@ -4984,18 +5003,17 @@ END;]]></Value>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
 				<Property Name="CreateOffset" Value="1" />
-				<Property Name="Length" Value="319" />
+				<Property Name="Length" Value="325" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_LmaxPushDiskNoSequence] &#xA;AS" />
+				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_LmaxPushDiskNoSequence] @TransactionsPerThread int = 200000&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[usp_LmaxPushDiskNumaNoSequence]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[ 
 BEGIN 
-    DECLARE  @QueueSize     int = 200000
-            ,@MessagePushed int
+    DECLARE  @MessagePushed int
             ,@Slot          int
             ,@i             int = 0;
 
@@ -5010,7 +5028,7 @@ BEGIN
                WHERE  r.session_id     = @@SPID
 			   AND    s.parent_node_id = 0)
 	BEGIN
-		WHILE @i <= @QueueSize 
+		WHILE @i <= @TransactionsPerThread 
 		BEGIN
 			EXEC dbo.usp_PushMessageDiskNoSequenceNode0 @MessagePushed OUTPUT; 
 			SET @i += 1;
@@ -5018,7 +5036,7 @@ BEGIN
 	END
 	ELSE
 	BEGIN
-		WHILE @i <= @QueueSize 
+		WHILE @i <= @TransactionsPerThread
 		BEGIN
 			EXEC dbo.usp_PushMessageDiskNoSequenceNode1 @MessagePushed OUTPUT; 
 			SET @i += 1;
@@ -5038,9 +5056,6 @@ END;]]></Value>
 					<References ExternalSource="BuiltIns" Name="[int]" />
 				</Entry>
 				<Entry>
-					<References ExternalSource="BuiltIns" Name="[int]" />
-				</Entry>
-				<Entry>
 					<References ExternalSource="master.dacpac" Name="[master]|[sys].[dm_exec_requests]" />
 				</Entry>
 				<Entry>
@@ -5068,10 +5083,33 @@ END;]]></Value>
 					<References ExternalSource="master.dacpac" Name="[master]|[sys].[dm_os_schedulers].[parent_node_id]" />
 				</Entry>
 				<Entry>
+					<References Name="[dbo].[usp_LmaxPushDiskNumaNoSequence].[@TransactionsPerThread]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[usp_PushMessageDiskNoSequenceNode0]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[usp_PushMessageDiskNoSequenceNode1]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_LmaxPushDiskNumaNoSequence].[@TransactionsPerThread]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[200000]]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
 				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
@@ -5081,18 +5119,17 @@ END;]]></Value>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
 				<Property Name="CreateOffset" Value="1" />
-				<Property Name="Length" Value="880" />
+				<Property Name="Length" Value="897" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_LmaxPushDiskNumaNoSequence] &#xA;AS" />
+				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_LmaxPushDiskNumaNoSequence] @TransactionsPerThread int = 200000&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[usp_LmaxPushDiskNumaSequence]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[ 
 BEGIN 
-    DECLARE  @QueueSize     int = 200000
-            ,@MessagePushed int
+    DECLARE  @MessagePushed int
             ,@Slot          int
             ,@i             int = 0;
 
@@ -5107,7 +5144,7 @@ BEGIN
                WHERE  r.session_id     = @@SPID
 			   AND    s.parent_node_id = 0)
 	BEGIN
-		WHILE @i <= @QueueSize 
+		WHILE @i <= @TransactionsPerThread 
 		BEGIN
 			EXEC dbo.usp_PushMessageDiskSequenceNode0 @MessagePushed OUTPUT; 
 			SET @i += 1;
@@ -5115,7 +5152,7 @@ BEGIN
 	END
 	ELSE
 	BEGIN
-		WHILE @i <= @QueueSize 
+		WHILE @i <= @TransactionsPerThread 
 		BEGIN
 			EXEC dbo.usp_PushMessageDiskSequenceNode1 @MessagePushed OUTPUT; 
 			SET @i += 1;
@@ -5135,9 +5172,6 @@ END;]]></Value>
 					<References ExternalSource="BuiltIns" Name="[int]" />
 				</Entry>
 				<Entry>
-					<References ExternalSource="BuiltIns" Name="[int]" />
-				</Entry>
-				<Entry>
 					<References ExternalSource="master.dacpac" Name="[master]|[sys].[dm_exec_requests]" />
 				</Entry>
 				<Entry>
@@ -5165,10 +5199,33 @@ END;]]></Value>
 					<References ExternalSource="master.dacpac" Name="[master]|[sys].[dm_os_schedulers].[parent_node_id]" />
 				</Entry>
 				<Entry>
+					<References Name="[dbo].[usp_LmaxPushDiskNumaSequence].[@TransactionsPerThread]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[usp_PushMessageDiskSequenceNode0]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[usp_PushMessageDiskSequenceNode1]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_LmaxPushDiskNumaSequence].[@TransactionsPerThread]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[200000]]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
 				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
@@ -5178,24 +5235,23 @@ END;]]></Value>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
 				<Property Name="CreateOffset" Value="1" />
-				<Property Name="Length" Value="874" />
+				<Property Name="Length" Value="892" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_LmaxPushDiskNumaSequence] &#xA;AS" />
+				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_LmaxPushDiskNumaSequence] @TransactionsPerThread int = 200000&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[usp_LmaxPushDiskSequence]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[ 
 BEGIN 
-    DECLARE  @QueueSize     int = 200000
-            ,@MessagePushed int
+    DECLARE  @MessagePushed int
             ,@Slot          int
             ,@i             int = 0;
 
     SET NOCOUNT ON;
 
-	WHILE @i <= @QueueSize 
+	WHILE @i <= @TransactionsPerThread 
 	BEGIN
 		EXEC dbo.usp_PushMessageDiskSequence @MessagePushed OUTPUT; 
 		SET @i += 1;
@@ -5214,10 +5270,30 @@ END;]]></Value>
 					<References ExternalSource="BuiltIns" Name="[int]" />
 				</Entry>
 				<Entry>
-					<References ExternalSource="BuiltIns" Name="[int]" />
+					<References Name="[dbo].[usp_LmaxPushDiskSequence].[@TransactionsPerThread]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[usp_PushMessageDiskSequence]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_LmaxPushDiskSequence].[@TransactionsPerThread]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[200000]]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
 				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
@@ -5227,10 +5303,10 @@ END;]]></Value>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
 				<Property Name="CreateOffset" Value="1" />
-				<Property Name="Length" Value="347" />
+				<Property Name="Length" Value="353" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_LmaxPushDiskSequence] &#xA;AS" />
+				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_LmaxPushDiskSequence] @TransactionsPerThread int = 200000&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[usp_LmaxPushImOltpNoSequence]">
@@ -5367,6 +5443,97 @@ END;]]></Value>
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[usp_LmaxPushImOltpSequence] @TransactionsPerThread int = 200000&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[usp_PopMessageDiskNoSequence]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN 
+    DECLARE  @QueueSize int    = 4000000
+	        ,@Message   char(300)
+	        ,@Slot      bigint;
+
+	SET @MessagePopped = 0;
+
+	WHILE @MessagePopped = 0
+	BEGIN
+		EXEC [dbo].[usp_GetPopSlotId] @Slot OUTPUT, @QueueSize;
+
+		UPDATE  q               WITH (ROWLOCK)
+		SET     time            = GETDATE()
+			   ,@Message        = message
+			   ,reference_count = reference_count - 1
+		FROM    [dbo].[MyQLmax] AS q 
+		WHERE   Slot            = @Slot
+		AND     reference_count = 1
+		OPTION (MAXDOP 1);
+
+		SET    @MessagePopped   = @@ROWCOUNT;
+	END;
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[char]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[bigint]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_PopMessageDiskNoSequence].[@MessagePopped]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_GetPopSlotId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[MyQLmax]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[MyQLmax].[time]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[MyQLmax].[message]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[MyQLmax].[reference_count]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[MyQLmax].[Slot]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_PopMessageDiskNoSequence].[@MessagePopped]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="1" />
+				<Property Name="Length" Value="636" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_PopMessageDiskNoSequence] @MessagePopped int OUTPUT&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[usp_PopMessageDiskNoSequenceNode0]">
@@ -5992,82 +6159,74 @@ END;]]></Value>
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[usp_PopMessageDiskSequenceNode1]  @MessagePopped int OUTPUT&#xA;                                                         ,@QueueSize     int = 4000000&#xA;AS" />
 			</Annotation>
 		</Element>
-		<Element Type="SqlProcedure" Name="[dbo].[usp_PopMessageNoSequence]">
+		<Element Type="SqlProcedure" Name="[dbo].[usp_PopMessageImOltpNoSequence]">
 			<Property Name="BodyScript">
-				<Value><![CDATA[
-BEGIN 
-    DECLARE  @QueueSize int    = 4000000
-	        ,@Message   char(300)
-	        ,@Slot      bigint;
+				<Value><![CDATA[ SNAPSHOT
+          ,LANGUAGE                    = N'us_english')
+
+    DECLARE  @MessagePopped int
+	        ,@QueueSize     int = 200000
+			,@Slot          bigint;
 
 	SET @MessagePopped = 0;
 
 	WHILE @MessagePopped = 0
 	BEGIN
-		EXEC [dbo].[usp_GetPopSlotId] @Slot OUTPUT, @QueueSize;
+		INSERT INTO [dbo].[NonBlockingPopSequence]
+			DEFAULT VALUES;
 
-		UPDATE  q               WITH (ROWLOCK)
+		SELECT @Slot = SCOPE_IDENTITY();
+	
+		DELETE FROM [dbo].[NonBlockingPopSequence] WHERE ID = @Slot;
+		
+		UPDATE [dbo].[MyQLmaxImOltp]
 		SET     time            = GETDATE()
-			   ,@Message        = message
+			   ,message         = 'Hello world'
+			   ,message_id      = @Slot
 			   ,reference_count = reference_count - 1
-		FROM    [dbo].[MyQLmax] AS q 
-		WHERE   Slot            = @Slot
-		AND     reference_count = 1
-		OPTION (MAXDOP 1);
+		WHERE   Slot            = @Slot % @QueueSize
+		AND     reference_count = 1;
 
-		SET    @MessagePopped   = @@ROWCOUNT;
+		SET @MessagePopped = @@ROWCOUNT;
 	END;
 END;]]></Value>
 			</Property>
+			<Property Name="IsNativeCompiled" Value="True" />
+			<Property Name="IsSchemaBound" Value="True" />
 			<Property Name="IsAnsiNullsOn" Value="True" />
 			<Relationship Name="BodyDependencies">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[int]" />
 				</Entry>
 				<Entry>
-					<References ExternalSource="BuiltIns" Name="[char]" />
+					<References ExternalSource="BuiltIns" Name="[int]" />
 				</Entry>
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[bigint]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[usp_PopMessageNoSequence].[@MessagePopped]" />
+					<References Name="[dbo].[NonBlockingPopSequence]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[usp_GetPopSlotId]" />
+					<References Name="[dbo].[NonBlockingPopSequence].[ID]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[MyQLmax]" />
+					<References Name="[dbo].[MyQLmaxImOltp]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[MyQLmax].[time]" />
+					<References Name="[dbo].[MyQLmaxImOltp].[time]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[MyQLmax].[message]" />
+					<References Name="[dbo].[MyQLmaxImOltp].[message]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[MyQLmax].[reference_count]" />
+					<References Name="[dbo].[MyQLmaxImOltp].[message_id]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[MyQLmax].[Slot]" />
+					<References Name="[dbo].[MyQLmaxImOltp].[reference_count]" />
 				</Entry>
-			</Relationship>
-			<Relationship Name="Parameters">
 				<Entry>
-					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_PopMessageNoSequence].[@MessagePopped]">
-						<Property Name="IsOutput" Value="True" />
-						<Relationship Name="Type">
-							<Entry>
-								<Element Type="SqlTypeSpecifier">
-									<Relationship Name="Type">
-										<Entry>
-											<References ExternalSource="BuiltIns" Name="[int]" />
-										</Entry>
-									</Relationship>
-								</Element>
-							</Entry>
-						</Relationship>
-					</Element>
+					<References Name="[dbo].[MyQLmaxImOltp].[Slot]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
@@ -6076,11 +6235,10 @@ END;]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="CreateOffset" Value="1" />
-				<Property Name="Length" Value="632" />
+				<Property Name="Length" Value="853" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="&#xA;CREATE PROCEDURE [dbo].[usp_PopMessageNoSequence] @MessagePopped int OUTPUT&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[usp_PopMessageImOltpNoSequence]  &#xA;WITH NATIVE_COMPILATION, SCHEMABINDING&#xA;AS&#xA;BEGIN ATOMIC&#xA;    WITH ( TRANSACTION ISOLATION LEVEL =" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[usp_PushMessageDiskNoSequence]">
@@ -6808,18 +6966,18 @@ END;]]></Value>
 
     DECLARE  @MessagePushed int
 	        ,@QueueSize     int = 200000
-			,@Slot          int;
+			,@Slot          bigint;
 
 	SET @MessagePushed = 0;
 
 	WHILE @MessagePushed = 0
 	BEGIN
-		INSERT INTO [dbo].[NonBlockingSequence]
+		INSERT INTO [dbo].[NonBlockingPushSequence]
 			DEFAULT VALUES;
 
 		SELECT @Slot = SCOPE_IDENTITY();
 	
-		DELETE FROM [dbo].[NonBlockingSequence] WHERE ID = @Slot;
+		DELETE FROM [dbo].[NonBlockingPushSequence] WHERE ID = @Slot;
 		
 		UPDATE [dbo].[MyQLmaxImOltp]
 		SET     time            = GETDATE()
@@ -6844,13 +7002,13 @@ END;]]></Value>
 					<References ExternalSource="BuiltIns" Name="[int]" />
 				</Entry>
 				<Entry>
-					<References ExternalSource="BuiltIns" Name="[int]" />
+					<References ExternalSource="BuiltIns" Name="[bigint]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[NonBlockingSequence]" />
+					<References Name="[dbo].[NonBlockingPushSequence]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[NonBlockingSequence].[ID]" />
+					<References Name="[dbo].[NonBlockingPushSequence].[ID]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[MyQLmaxImOltp]" />
@@ -6877,7 +7035,7 @@ END;]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="845" />
+				<Property Name="Length" Value="856" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[usp_PushMessageImOltpNoSequence]  &#xA;WITH NATIVE_COMPILATION, SCHEMABINDING&#xA;AS&#xA;BEGIN ATOMIC&#xA;    WITH ( TRANSACTION ISOLATION LEVEL =" />

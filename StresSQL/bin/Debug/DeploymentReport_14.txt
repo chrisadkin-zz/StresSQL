@@ -1,0 +1,31 @@
+﻿** Warnings
+     User level transactions are not supported for memory optimized objects.  You must disable the 'Include transactional
+       scripts' deployment option to successfully deploy changes to memory optimized objects.
+
+** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [dbo].[usp_PushMessageImOltpNoSequence] (Procedure)
+     Alter
+       [dbo].[usp_LmaxPushDiskNoSequence] (Procedure)
+       [dbo].[usp_LmaxPushDiskNumaNoSequence] (Procedure)
+       [dbo].[usp_LmaxPushDiskNumaSequence] (Procedure)
+       [dbo].[usp_LmaxPushDiskSequence] (Procedure)
+       [dbo].[usp_LmaxPushImOltpSequence] (Procedure)
+       [dbo].[usp_StresSQL] (Procedure)
+       [dbo].[usp_LmaxPushImOltpNoSequence] (Procedure)
+     Create
+       [dbo].[usp_PushMessageImOltpNoSequence] (Procedure)
+       [dbo].[usp_LMaxDiskInit] (Procedure)
+       [dbo].[usp_LMaxDiskNumaInit] (Procedure)
+
+** Supporting actions

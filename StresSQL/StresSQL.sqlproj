@@ -97,7 +97,7 @@
     <Build Include="dbo\Stored Procedures\usp_GetPopSlotId.sql" />
     <Build Include="dbo\Stored Procedures\usp_PopMessageDiskNoSequenceNode0.sql" />
     <Build Include="dbo\Stored Procedures\usp_PopMessageDiskNoSequenceNode1.sql" />
-    <Build Include="dbo\Stored Procedures\usp_PopMessageNoSequence.sql" />
+    <Build Include="dbo\Stored Procedures\usp_PopMessageDiskNoSequence.sql" />
     <Build Include="dbo\Stored Procedures\usp_PushMessageImOltpSequence.sql" />
     <Build Include="dbo\Stored Procedures\usp_LmaxPopDiskNoSequence.sql" />
     <Build Include="dbo\Stored Procedures\usp_PushMessageDiskSequence.sql" />
@@ -142,6 +142,7 @@
     <Build Include="dbo\Stored Procedures\usp_PushMessageDiskNoSequence.sql" />
     <Build Include="dbo\Stored Procedures\usp_LMaxImOltpQSlotInit.sql" />
     <Build Include="dbo\Stored Procedures\usp_LMaxImOltpInit.sql" />
+    <Build Include="dbo\Stored Procedures\usp_PopMessageImOltpNoSequence.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\ClassLibrary1.dll" />

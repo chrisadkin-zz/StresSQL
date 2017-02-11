@@ -13,12 +13,12 @@ BEGIN ATOMIC
 
 	WHILE @MessagePushed = 0
 	BEGIN
-		INSERT INTO [dbo].[NonBlockingSequence]
+		INSERT INTO [dbo].[NonBlockingPushSequence]
 			DEFAULT VALUES;
 
 		SELECT @Slot = SCOPE_IDENTITY();
 	
-		DELETE FROM [dbo].[NonBlockingSequence] WHERE ID = @Slot;
+		DELETE FROM [dbo].[NonBlockingPushSequence] WHERE ID = @Slot;
 		
 		UPDATE [dbo].[MyQLmaxImOltp]
 		SET     time            = GETDATE()

@@ -6,7 +6,7 @@ BEGIN ATOMIC
           ,LANGUAGE                    = N'us_english')
 
     DECLARE  @MessagePopped int
-	        ,@QueueSize     int = 200000
+	        ,@QueueSize     int = 4000000
 			,@Slot          bigint;
 
 	SET @MessagePopped = 0;

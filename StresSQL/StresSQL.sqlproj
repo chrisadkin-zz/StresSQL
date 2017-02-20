@@ -143,6 +143,11 @@
     <Build Include="dbo\Stored Procedures\usp_LMaxImOltpQSlotInit.sql" />
     <Build Include="dbo\Stored Procedures\usp_LMaxImOltpInit.sql" />
     <Build Include="dbo\Stored Procedures\usp_PopMessageImOltpNoSequence.sql" />
+    <Build Include="dbo\Stored Procedures\usp_LmaxPushImOltpNoSequenceNoLog.sql" />
+    <Build Include="dbo\Stored Procedures\usp_LmaxPopImOltpNoSequenceNoLog.sql" />
+    <Build Include="dbo\Stored Procedures\usp_PushMessageImOltpNoSequenceNoLog.sql" />
+    <Build Include="dbo\Stored Procedures\usp_PopMessageImOltpNoSequenceNoLog.sql" />
+    <Build Include="dbo\Tables\MyQLmaxImOltpNoLog.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\ClassLibrary1.dll" />

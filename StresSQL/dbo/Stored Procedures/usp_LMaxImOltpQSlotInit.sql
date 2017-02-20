@@ -20,6 +20,26 @@ BEGIN ATOMIC
 			   ,GETDATE()
 			   ,''
 			   ,0);
+		INSERT INTO [dbo].[MyQLmaxImOltpNoLog]
+			   ([message_id]
+			   ,[time]
+			   ,[message]
+			   ,[reference_count])
+		 VALUES
+			   (0
+			   ,GETDATE()
+			   ,''
+			   ,0);
+		INSERT INTO [dbo].[MyQLmaxImOltpTemporal]
+			   ([message_id]
+			   ,[time]
+			   ,[message]
+			   ,[reference_count])
+		 VALUES
+			   (0
+			   ,GETDATE()
+			   ,''
+			   ,0);
 		SET @i += 1;
 	END;
 END;

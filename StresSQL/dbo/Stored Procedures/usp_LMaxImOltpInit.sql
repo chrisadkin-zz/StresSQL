@@ -5,7 +5,9 @@ AS
 BEGIN ATOMIC
 WITH ( TRANSACTION ISOLATION LEVEL = SNAPSHOT
       ,LANGUAGE                    = N'us_english')
-		UPDATE [dbo].[MyQLmaxImOltp] SET reference_count = 0;
+		UPDATE [dbo].[MyQLmaxImOltp]         SET reference_count = 0;
+		UPDATE [dbo].[MyQLmaxImOltpNoLog]    SET reference_count = 0;
+		UPDATE [dbo].[MyQLmaxImOltpTemporal] SET reference_count = 0;
 END;
 
 

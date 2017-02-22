@@ -1,5 +1,4 @@
 ﻿CREATE PROCEDURE [dbo].[usp_LMaxPopMessageImOltpNoSequenceNonNative] @TransactionsPerThread int = 200000  
-WITH NATIVE_COMPILATION, SCHEMABINDING
 AS
 BEGIN 
     DECLARE  @MessagePopped int

@@ -153,6 +153,9 @@
     <Build Include="dbo\Stored Procedures\usp_LmaxPushImOltpNoSequenceTemporal.sql" />
     <Build Include="dbo\Stored Procedures\usp_LmaxPopImOltpNoSequence.sql" />
     <Build Include="dbo\Stored Procedures\usp_LmaxPopImOltpNoSequenceTemporal.sql" />
+    <Build Include="dbo\Stored Procedures\usp_PopMessageImOltpNoSequenceTemporal.sql" />
+    <Build Include="dbo\Stored Procedures\usp_LMaxPushMessageImOltpNoSequenceNonNative.sql" />
+    <Build Include="dbo\Stored Procedures\usp_LMaxPopMessageImOltpNoSequenceNonNative.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\ClassLibrary1.dll" />

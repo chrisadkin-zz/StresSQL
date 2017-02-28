@@ -1,12 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[usp_LMaxPopMessageImOltpNoSequenceNonNative] @TransactionsPerThread int = 200000  
 AS
 BEGIN 
-    DECLARE  @MessagePopped int
+    DECLARE  @MessagePopped int = 0
 	        ,@QueueSize     int = 4000000
 			,@Slot          bigint
 			,@i             int = 0;
-
-	SET @MessagePopped = 0;
 
 	WHILE @i < @TransactionsPerThread
 	BEGIN
@@ -30,6 +28,7 @@ BEGIN
 			SET @MessagePopped = @@ROWCOUNT;
 		END;
 
+	    SET @MessagePopped = 0;
 		SET @i = @i + 1;
 	END;
 END;

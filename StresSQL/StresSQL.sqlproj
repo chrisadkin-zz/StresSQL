@@ -154,8 +154,22 @@
     <Build Include="dbo\Stored Procedures\usp_LmaxPopImOltpNoSequence.sql" />
     <Build Include="dbo\Stored Procedures\usp_LmaxPopImOltpNoSequenceTemporal.sql" />
     <Build Include="dbo\Stored Procedures\usp_PopMessageImOltpNoSequenceTemporal.sql" />
-    <Build Include="dbo\Stored Procedures\usp_LMaxPushMessageImOltpNoSequenceNonNative.sql" />
-    <Build Include="dbo\Stored Procedures\usp_LMaxPopMessageImOltpNoSequenceNonNative.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ScalableSequenceCache500.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ScalableSequenceCache1000.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ScalableSequenceCache2000.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ScalableSequenceCache3000.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ScalableSequenceImHashInsertDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ScalableSequenceImHashUpdateSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_TableVar.sql" />
+    <Build Include="dbo\Stored Procedures\usp_TableVarDisk.sql" />
+    <Build Include="dbo\Stored Procedures\usp_TableVarImOltp.sql" />
+    <Build Include="dbo\Stored Procedures\usp_TempTable.sql" />
+    <Build Include="dbo\Sequences\SequenceCache500.sql" />
+    <Build Include="dbo\Sequences\SequenceCache1000.sql" />
+    <Build Include="dbo\Sequences\SequenceCache2000.sql" />
+    <Build Include="dbo\Sequences\SequenceCache3000.sql" />
+    <Build Include="dbo\Tables\NonBlockingSequenceHashIndex.sql" />
+    <Build Include="dbo\Tables\t_AllObjects.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\ClassLibrary1.dll" />

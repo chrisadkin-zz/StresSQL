@@ -1,0 +1,38 @@
+﻿** Warnings
+     User level transactions are not supported for memory optimized objects.  You must disable the 'Include transactional
+       scripts' deployment option to successfully deploy changes to memory optimized objects.
+
+** Highlights
+     Tables that will be rebuilt
+       [dbo].[MyQLmaxImOltpTemporal]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [dbo].[usp_ScalableSequenceImHashUpdateSelect] (Procedure)
+       [dbo].[t_AllObjects] (User-Defined Table Type)
+     Create
+       [dbo].[t_AllObjects] (User-Defined Table Type)
+       [dbo].[usp_ScalableSequenceImHashUpdateSelect] (Procedure)
+
+** Supporting actions
+     Drop
+       [dbo].[usp_LMaxImOltpQSlotInit] (Procedure)
+       [dbo].[usp_PopMessageImOltpNoSequenceTemporal] (Procedure)
+       [dbo].[usp_PushMessageImOltpNoSequenceTemporal] (Procedure)
+     Table rebuild
+       [dbo].[MyQLmaxImOltpTemporal] (Table)
+     Create
+       [dbo].[usp_LMaxImOltpQSlotInit] (Procedure)
+       [dbo].[usp_PopMessageImOltpNoSequenceTemporal] (Procedure)
+       [dbo].[usp_PushMessageImOltpNoSequenceTemporal] (Procedure)
+     Refresh
+       [dbo].[usp_LMaxImOltpInit] (Procedure)
+       [dbo].[usp_LmaxPopImOltpNoSequenceTemporal] (Procedure)
+       [dbo].[usp_LmaxPushImOltpNoSequenceTemporal] (Procedure)
+       [dbo].[usp_TableVarImOltp] (Procedure)

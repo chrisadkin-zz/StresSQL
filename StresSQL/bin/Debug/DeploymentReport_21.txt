@@ -1,0 +1,49 @@
+﻿** Warnings
+     User level transactions are not supported for memory optimized objects.  You must disable the 'Include transactional
+       scripts' deployment option to successfully deploy changes to memory optimized objects.
+
+** Highlights
+     Tables that will be rebuilt
+       [dbo].[NonBlockingSequenceHashIndex]
+     Clustered indexes that will be dropped
+       [dbo].[MyQLmaxImOltpTemporalHist].[ix_MyQLmaxImOltpTemporalHist] on [dbo].[MyQLmaxImOltpTemporalHist]
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [dbo].[MyQLmaxImOltpTemporalHist].[ix_MyQLmaxImOltpTemporalHist] (Index)
+       [dbo].[t_AllObjects] (User-Defined Table Type)
+     Create
+       [dbo].[t_AllObjects] (User-Defined Table Type)
+       [dbo].[usp_LmaxPopDiskNoSequence] (Procedure)
+       [dbo].[usp_LmaxPopDiskNumaNoSequence] (Procedure)
+       [dbo].[usp_LmaxPopDiskNumaSequence] (Procedure)
+       [dbo].[usp_LmaxPopDiskSequence] (Procedure)
+       [dbo].[usp_LmaxPopImOltpNoSequence] (Procedure)
+       [dbo].[usp_LmaxPopImOltpNoSequenceNoLog] (Procedure)
+       [dbo].[usp_LmaxPopImOltpNoSequenceTemporal] (Procedure)
+       [dbo].[usp_LmaxPushDiskNoSequence] (Procedure)
+       [dbo].[usp_LmaxPushDiskNumaNoSequence] (Procedure)
+       [dbo].[usp_LmaxPushDiskNumaSequence] (Procedure)
+       [dbo].[usp_LmaxPushDiskSequence] (Procedure)
+       [dbo].[usp_LmaxPushImOltpNoSequence] (Procedure)
+       [dbo].[usp_LmaxPushImOltpNoSequenceNoLog] (Procedure)
+       [dbo].[usp_LmaxPushImOltpNoSequenceTemporal] (Procedure)
+       [dbo].[usp_LmaxPushImOltpSequence] (Procedure)
+       [dbo].[usp_ScalableSequenceImHashUpdateSelect] (Procedure)
+       [dbo].[usp_StresSQL] (Procedure)
+       [dbo].[usp_TableVar] (Procedure)
+       [dbo].[usp_TableVarDisk] (Procedure)
+       [dbo].[usp_TableVarImOltp] (Procedure)
+       [dbo].[usp_TempTable] (Procedure)
+     Table rebuild
+       [dbo].[NonBlockingSequenceHashIndex] (Table)
+
+** Supporting actions
+     Drop
+       [dbo].[usp_ScalableSequenceImHashInsertDelete] (Procedure)
+     Create
+       [dbo].[usp_ScalableSequenceImHashInsertDelete] (Procedure)

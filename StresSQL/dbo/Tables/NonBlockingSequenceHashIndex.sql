@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[NonBlockingSequenceHashIndex]
 (
-	[ID] [bigint] IDENTITY(1,1) NOT NULL,
-
+	[ID]  [bigint] IDENTITY(1,1) NOT NULL,
+	[Val] [bigint]
  PRIMARY KEY NONCLUSTERED HASH 
 (
 	[ID]
